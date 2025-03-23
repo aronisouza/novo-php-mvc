@@ -1,0 +1,27 @@
+<?php
+require_once __DIR__ . '/autoload.php';
+require_once __DIR__ . '/functions.php';
+loadEnv();
+
+if (!isset($argv[1])) {
+    echo "Uso: php migrate [comando]\n";
+    echo "Comandos disponíveis:\n";
+    echo "  migrate     Executa todas as migrations pendentes\n";
+    echo "  rollback   Reverte a última batch de migrations\n";
+    exit(1);
+}
+
+$manager = new MigrationManager();
+$command = $argv[1];
+
+switch ($command) {
+    case 'migrate':
+        echo $manager->migrate() . "\n";
+        break;
+    case 'rollback':
+        echo $manager->rollback() . "\n";
+        break;
+    default:
+        echo "Comando inválido: {$command}\n";
+        exit(1);
+}

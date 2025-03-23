@@ -1,0 +1,34 @@
+.bg-base-site {
+    background-color: #b3d1d8;
+}
+.bg-nav-bar {
+    background-color: #7ec5d4;
+}
+
+.titulo-h1 {
+    font-size: 2rem;
+}
+
+.titulo-h2 {
+    font-size: 1.5rem;
+}
+
+.titulo-h3 {
+    font-size: 1.2rem;
+}
+
+.titulo-h4 {
+    font-size: 1rem;
+}
+
+.text-justified {
+    text-align: justify;
+}
+
+.drop-menu {
+    margin-top: 10px;
+    margin-left: 0;
+}
+
+
+
