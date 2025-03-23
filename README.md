@@ -56,6 +56,7 @@ filidmvc/
 ├── Configs/           # Arquivos de configuração
 ├── Controllers/       # Controladores da aplicação
 ├── Core/             # Classes principais do framework
+├── Migrations/       # Criar e modificar tabelas no banco
 ├── Models/           # Modelos e lógica de negócios
 ├── Public/           # Arquivos públicos (CSS, JS, imagens)
 ├── Views/            # Arquivos de visualização
@@ -80,8 +81,8 @@ filidmvc/
 
 1. Clone o repositório:
 ```bash
-git clone https://github.com/seu-usuario/filid-mvc.git
-cd filid-mvc
+git clone https://github.com/seu-usuario/novo-php-mvc.git
+cd novo-php-mvc
 ```
 
 2. Configure seu servidor web (Apache/Nginx) para apontar para a pasta do projeto
@@ -97,6 +98,9 @@ DB_HOST=localhost
 DB_NAME=seu_banco
 DB_USER=seu_usuario
 DB_PASS=sua_senha
+SITE_URL=site.com.br
+SITE_TITLE=Meu Site
+SITE_CIGLA=FLD
 ```
 
 ## ⚙️ Configuração
@@ -109,17 +113,28 @@ DB_HOST=localhost
 DB_NAME=seu_banco
 DB_USER=seu_usuario
 DB_PASS=sua_senha
+SITE_URL=site.com.br
+SITE_TITLE=Meu Site
+SITE_CIGLA=FLD
 ```
 
 ### Configuração do Apache (.htaccess)
 
 ```apache
 RewriteEngine On
-Options All -Indexes
+Options -Indexes
 
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
+
+ErrorDocument 403 https://github.com/aronisouza
+
+<FilesMatch "^(\.env|autoload\.php)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
 ```
 
 ## 💻 Uso
